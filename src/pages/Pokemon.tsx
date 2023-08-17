@@ -1,7 +1,8 @@
 import React from "react";
+import Wraper from "../sections/Wraper";
 
 const Pokemon = () => {
   return <div>Pokemon</div>;
 };
 
-export default Pokemon;
+export default Wraper(Pokemon);

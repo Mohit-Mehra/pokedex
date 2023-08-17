@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const Wraper = () => {
+const Wraper = (Component: React.FC) => () => {
   return (
-    <div className='content'>Wraper</div>
-  )
-}
+    <div className="content">
+      <Component />
+    </div>
+  );
+};
 
-export default Wraper
+export default Wraper;
