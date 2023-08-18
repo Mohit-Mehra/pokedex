@@ -36,6 +36,7 @@ export const getPokemonData = createAsyncThunk("pokemon/randomPokemon",async (po
                 })
             }
         }
+        return pokemonsData;
     } catch (err) {
         console.log(err)
     }
