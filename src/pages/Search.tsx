@@ -7,7 +7,9 @@ import PokemonCardGrid from "../components/PokemonCardGrid";
 
 const Search = () => {
   const dispatch = useAppDispatch();
-  const { allPokemon, randomPokemons } = useAppSelector(({ pokemon }) => pokemon);
+  const { allPokemon, randomPokemons } = useAppSelector(
+    ({ pokemon }) => pokemon
+  );
 
   useEffect(() => {
     dispatch(getInitialPokemonData());
@@ -22,10 +24,17 @@ const Search = () => {
       dispatch(getPokemonData(randomPokemonsId));
     }
   }, [allPokemon, dispatch]);
+
+  
+
   return (
     <>
       <div className="search">
-        <input type="text" name="" id="" />
+        <input
+          type="text"
+          className="pokemon-searchbar"
+          placeholder="Search Pokemon"
+        />
         <PokemonCardGrid pokemons={randomPokemons!} />
       </div>
     </>
