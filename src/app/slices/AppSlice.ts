@@ -1,12 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppTypeInitialState } from "../../utils/Types";
 
-const initialState:AppTypeInitialState = {}
+const initialState: AppTypeInitialState = {
+    toasts: [],
+}
 
-export const AppSlice= createSlice({
-    name:'app',
+export const AppSlice = createSlice({
+    name: 'app',
     initialState,
-    reducers:{},
+    reducers: {
+        setToast: (state, action) => {
+            const toasts = [...state.toasts];
+            toasts.push(action.payload);
+            state.toasts = toasts;
+        },
+        cleartoasts: (state) => {
+      state.toasts = [];
+    },
+    },
 })
-// eslint-disable-next-line
-export const {} = AppSlice.actions;
+export const { setToast, cleartoasts } = AppSlice.actions;

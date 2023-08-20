@@ -3,6 +3,9 @@ import { IoGitCompare } from "react-icons/io5";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { pokemonTypesInterface, userPokemonsTypes } from "../utils/Types";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../app/hooks";
+import { addToCompare } from "../app/slices/PokemonSlice";
+import { setToast } from "../app/slices/AppSlice";
 
 export const PokemonCardGrid = ({
   pokemons,
@@ -11,6 +14,7 @@ export const PokemonCardGrid = ({
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   return (
     <div className="pokemon-card-grid-container">
       <div className="pokemon-card-grid">
@@ -29,7 +33,14 @@ export const PokemonCardGrid = ({
                   )}
                 </div>
                 <div className="pokemon-card-compare">
-                  <IoGitCompare />
+                  <IoGitCompare
+                    onClick={() => {
+                      dispatch(addToCompare(data));
+                      dispatch(
+                        setToast(`${data.name} has been added to Compare Queue.`)
+                      );
+                    }}
+                  />
                 </div>
                 <h3 className="pokemon-card-title">{data.name}</h3>
                 <img
@@ -37,7 +48,7 @@ export const PokemonCardGrid = ({
                   alt="pokemon"
                   className="pokemon-card-image"
                   loading="lazy"
-                  onClick={()=>navigate(`/pokemon/${data.id}`)}
+                  onClick={() => navigate(`/pokemon/${data.id}`)}
                 />
                 <div className="pokemon-card-types">
                   {data.types.map(
