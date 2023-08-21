@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
-import {getFirestore} from 'firebase/firestore'
+import {collection, getFirestore} from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFSIVp72WgpurI_hff9u1SAk9u9wnF-ko",
@@ -15,4 +15,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(app);
-export const firbaseDb = getFirestore(app)
+export const firbaseDB = getFirestore(app)
+
+export const usersRef = collection(firbaseDB,"user")
+export const pokemonListRef = collection(firbaseDB,"pokemonList")

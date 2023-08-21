@@ -1,5 +1,6 @@
 export interface AppTypeInitialState {
   toasts: string[];
+  userInfo: undefined | { emial: string };
 }
 
 export interface PokemonTypeInitialState {
