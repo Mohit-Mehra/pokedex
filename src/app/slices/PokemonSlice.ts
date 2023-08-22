@@ -6,7 +6,8 @@ import { getPokemonData } from "../reducers/getPokemonData";
 const initialState: PokemonTypeInitialState = {
     allPokemon: undefined,
     randomPokemons: undefined,
-    compareQueue: []
+    compareQueue: [],
+    userPokemons:[],
 }
 
 export const PokemonSlice = createSlice({

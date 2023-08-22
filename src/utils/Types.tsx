@@ -7,6 +7,7 @@ export interface PokemonTypeInitialState {
   allPokemon: undefined | genericPokemonType[];
   randomPokemons: undefined | generatedPokemonTypes[];
   compareQueue: generatedPokemonTypes[];
+  userPokemons: userPokemonsTypes[];
 }
 export interface genericPokemonType {
   name: string;
@@ -38,3 +39,8 @@ export type pokemonStatType =
   | "weakness"
   | "strength"
   | "resistance";
+
+export interface pokemonStatsType {
+  name: string;
+  value: string;
+}
