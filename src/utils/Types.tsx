@@ -1,6 +1,7 @@
 export interface AppTypeInitialState {
   toasts: string[];
-  userInfo: undefined | { emial: string };
+  userInfo: { email: string } | undefined;
+  // userInfo: undefined | { emial: string };
 }
 
 export interface PokemonTypeInitialState {

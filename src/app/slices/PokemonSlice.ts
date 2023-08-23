@@ -2,12 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { PokemonTypeInitialState, generatedPokemonTypes } from "../../utils/Types";
 import { getInitialPokemonData } from "../reducers/getInitialPokemonData";
 import { getPokemonData } from "../reducers/getPokemonData";
+import { getUserPokemons } from "../reducers/getUserPokemons";
 
 const initialState: PokemonTypeInitialState = {
     allPokemon: undefined,
     randomPokemons: undefined,
     compareQueue: [],
-    userPokemons:[],
+    userPokemons: [],
 }
 
 export const PokemonSlice = createSlice({
@@ -23,10 +24,10 @@ export const PokemonSlice = createSlice({
                 state.compareQueue.unshift(action.payload)
             }
         },
-        removeFromCompare:(state,action)=>{
+        removeFromCompare: (state, action) => {
             const index = state.compareQueue.findIndex((pokemon: generatedPokemonTypes) => pokemon.id === action.payload.id)
             const queue = [...state.compareQueue]
-            queue.splice(index,1);
+            queue.splice(index, 1);
             state.compareQueue = queue;
         }
     },
@@ -37,6 +38,9 @@ export const PokemonSlice = createSlice({
         builder.addCase(getPokemonData.fulfilled, (state, action) => {
             state.randomPokemons = action.payload;
         })
+        builder.addCase(getUserPokemons.fulfilled, (state, action) => {
+            state.userPokemons = action.payload!;
+        })
     }
 })
-export const {addToCompare,removeFromCompare } = PokemonSlice.actions;
+export const { addToCompare, removeFromCompare } = PokemonSlice.actions;

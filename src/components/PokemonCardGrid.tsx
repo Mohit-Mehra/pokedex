@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
 import { addToCompare } from "../app/slices/PokemonSlice";
 import { setToast } from "../app/slices/AppSlice";
+import { addPokemonToList } from "../app/reducers/addPokemonToList";
 
 export const PokemonCardGrid = ({
   pokemons,
@@ -25,9 +26,15 @@ export const PokemonCardGrid = ({
               <div className="pokemon-card" key={data.id}>
                 <div className="pokemon-card-list">
                   {location.pathname.includes("/pokemon") ? (
-                    <FaPlus className="plus" />
+                    <FaPlus
+                      className="plus"
+                      onClick={() => dispatch(addPokemonToList(data))}
+                    />
                   ) : location.pathname.includes("/search") ? (
-                    <FaPlus className="plus" />
+                    <FaPlus
+                      className="plus"
+                      onClick={() => dispatch(addPokemonToList(data))}
+                    />
                   ) : (
                     <FaTrash className="trash" />
                   )}
@@ -37,7 +44,9 @@ export const PokemonCardGrid = ({
                     onClick={() => {
                       dispatch(addToCompare(data));
                       dispatch(
-                        setToast(`${data.name} has been added to Compare Queue.`)
+                        setToast(
+                          `${data.name} has been added to Compare Queue.`
+                        )
                       );
                     }}
                   />
