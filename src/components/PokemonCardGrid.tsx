@@ -7,6 +7,7 @@ import { useAppDispatch } from "../app/hooks";
 import { addToCompare } from "../app/slices/PokemonSlice";
 import { setToast } from "../app/slices/AppSlice";
 import { addPokemonToList } from "../app/reducers/addPokemonToList";
+import { removePokemon } from "../app/reducers/removePokemonFromUserList";
 
 export const PokemonCardGrid = ({
   pokemons,
@@ -36,7 +37,13 @@ export const PokemonCardGrid = ({
                       onClick={() => dispatch(addPokemonToList(data))}
                     />
                   ) : (
-                    <FaTrash className="trash" />
+                    <FaTrash
+                      className="trash"
+                      onClick={async () => {
+                        await dispatch(removePokemon({ id: data.firebaseId! }));
+                        dispatch(setToast("Pokemon removed Successfully"));
+                      }}
+                    />
                   )}
                 </div>
                 <div className="pokemon-card-compare">
