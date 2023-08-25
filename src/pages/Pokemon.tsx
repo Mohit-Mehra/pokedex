@@ -1,11 +1,10 @@
 import React, { useEffect, useCallback } from "react";
-import Wrapper from "../sections/Wrapper";
+import Wraper from "../sections/Wraper";
 import { useParams } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
 import axios from "axios";
-import { pokemonRoute, pokemonSpeciesRoute } from "../utils/Constants";
 import { defaultImages, images } from "../utils/getPokemonImages";
-import { extractColors } from "extract-colors";
+import extractColors from "extract-colors";
 
 function Pokemon() {
   const params = useParams();
@@ -143,4 +142,4 @@ function Pokemon() {
   return <div>Pokemon</div>;
 }
 
-export default Wrapper(Pokemon);
+export default Wraper(Pokemon);
