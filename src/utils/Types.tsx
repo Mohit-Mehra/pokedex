@@ -1,7 +1,14 @@
 export interface AppTypeInitialState {
   toasts: string[];
   userInfo: { email: string } | undefined;
+  currentPokemonTab: string;
+  currentPokemon: currentPokemonType | undefined;
   // userInfo: undefined | { emial: string };
+}
+export interface currentPokemonType {
+  id: number;
+  name: string;
+  types: pokemonTypesInterface;
 }
 
 export interface PokemonTypeInitialState {
