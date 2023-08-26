@@ -1,11 +1,10 @@
 .profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
-  gap: 2rem;
-  color: white;
+  gap: 1rem;
+  color: var(--accent-color);
+  margin-top: 2rem;
   &-text {
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -20,8 +19,10 @@
     font-size: 0.5rem;
   }
   &-image {
-    height: 12rem;
-    border-radius: 5rem;
+    height: 15rem;
+    border-radius: 10rem;
+    border: 0.3rem solid var(--accent-color);
+    padding: 1rem;
   }
   &-links {
     display: flex;

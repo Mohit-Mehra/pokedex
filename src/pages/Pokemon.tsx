@@ -5,6 +5,7 @@ import { useAppDispatch } from "../app/hooks";
 import axios from "axios";
 import { defaultImages, images } from "../utils/getPokemonImages";
 import extractColors from "extract-colors";
+import { pokemonRoute, pokemonSpeciesRoute, pokemonsRoutes } from "../utils/Constants";
 
 function Pokemon() {
   const params = useParams();

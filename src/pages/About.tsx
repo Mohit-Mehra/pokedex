@@ -5,7 +5,7 @@ import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 const About = () => {
   return (
     <div className="profile">
-      <img src={avatarImage} className="profile-image" alt="It's Me" />
+      <img src={avatarImage} alt="" className="profile-image" />
       <h1 className="profile-text">Hey there, I'm Mohit Mehra </h1>
       <h2 className="profile-text">
         The mastermind responsible for conjuring up this epic Pokédex!
