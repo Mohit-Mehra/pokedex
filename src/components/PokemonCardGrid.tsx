@@ -4,10 +4,11 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 import { pokemonTypesInterface, userPokemonsTypes } from "../utils/Types";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
-import { addToCompare } from "../app/slices/PokemonSlice";
-import { setToast } from "../app/slices/AppSlice";
+import { addToCompare, setCurrentPokemon } from "../app/slices/PokemonSlice";
+import { setPokemonTab, setToast } from "../app/slices/AppSlice";
 import { addPokemonToList } from "../app/reducers/addPokemonToList";
 import { removePokemon } from "../app/reducers/removePokemonFromUserList";
+import { pokemonTabs } from "../utils/Constants";
 
 export const PokemonCardGrid = ({
   pokemons,
@@ -64,7 +65,11 @@ export const PokemonCardGrid = ({
                   alt="pokemon"
                   className="pokemon-card-image"
                   loading="lazy"
-                  onClick={() => navigate(`/pokemon/${data.id}`)}
+                  onClick={() => {
+                    dispatch(setPokemonTab(pokemonTabs.description));
+                    dispatch(setCurrentPokemon(undefined));
+                    navigate(`/pokemon/${data.id}`);
+                  }}
                 />
                 <div className="pokemon-card-types">
                   {data.types.map(
