@@ -15,7 +15,6 @@ Our PokeDex offers a feature-rich experience that allows you to explore, learn, 
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
